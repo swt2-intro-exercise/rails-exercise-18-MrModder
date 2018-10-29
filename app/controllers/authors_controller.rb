@@ -3,7 +3,13 @@ class AuthorsController < ApplicationController
     end
 
     def create
+        puts params
+        puts author_params
         @author = Author.new(author_params)
+
+        puts @author.first_name
+        puts @author.last_name
+        puts @author.homepage
 
         @author.save
     end
