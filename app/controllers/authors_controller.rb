@@ -3,12 +3,12 @@ class AuthorsController < ApplicationController
     end
 
     def create
-        params.require(:author).permit(:first_name, :last_name, :homepage)
-        @author = Author.new(
-            first_name: params[:first_name],
-            last_name: params[:last_name],
-            homepage: params[:homepage])
+        @author = Author.new(author_params)
 
         @author.save
+    end
+
+    def author_params
+        params.require(:author).permit(:first_name, :last_name, :homepage)
     end
 end
