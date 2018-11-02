@@ -19,6 +19,6 @@ describe "Author model", type: :model do
     expect(author).to_not be_valid
 
     author2 = Author.new(first_name: 'Alan', last_name: '')
-    expect(author).to_not be_valid
+    expect(author2).to_not be_valid
   end
 end
