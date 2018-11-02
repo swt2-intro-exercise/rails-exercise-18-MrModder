@@ -3,15 +3,14 @@ class AuthorsController < ApplicationController
     end
 
     def create
-        puts params
-        puts author_params
         @author = Author.new(author_params)
 
-        puts @author.first_name
-        puts @author.last_name
-        puts @author.homepage
-
         @author.save
+        redirect_to @author
+    end
+
+    def show
+        @author = Author.find(params[:id])
     end
 
     def author_params
