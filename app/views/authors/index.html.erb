@@ -8,8 +8,10 @@
 
   <% @authors.each do |author| %>
     <tr>
-      <td><%= author.name %></td>
-      <td><a href="<%= author.homepage %>"><%= author.homepage %></a></td>
+      <td><%= link_to author.name, author_path(author) %></td>
+      <td><%= link_to author.homepage, author.homepage %></td>
     </tr>
   <% end %>
 </table>
+
+<%= link_to 'New', new_author_path %>
