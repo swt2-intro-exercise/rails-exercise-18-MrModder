@@ -23,4 +23,13 @@ describe "New author page", type: :feature do
 
     find('input[type = "submit"]').click
   end
+
+  it 'shows errors if author is invalid' do
+    visit new_author_path
+
+    page.fill_in 'author[last_name]', with: ''
+    find('input[type = "submit"]').click
+
+    expect(page).to have_text 'Error'
+  end
 end

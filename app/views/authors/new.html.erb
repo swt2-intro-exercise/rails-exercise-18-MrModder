@@ -1,20 +1,32 @@
 <%= form_with scope: :author, url: authors_path, local: true do |form| %>
-    <p>
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name %>
-    </p>
 
-    <p>
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
-    </p>
+  <% if @author and @author.errors.any? %>
+    <div id="error_explanation">
+      <h2>Error while saving author!</h2>
+      <ul>
+        <% @author.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-    <p>
-        <%= form.label :homepage %>
-        <%= form.text_field :homepage %>
-    </p>
+  <p>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </p>
 
-    <p>
-        <%= form.submit %>
-    </p>
+  <p>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= form.label :homepage %>
+    <%= form.text_field :homepage %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
 <%end%>
