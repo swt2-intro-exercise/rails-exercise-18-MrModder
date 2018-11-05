@@ -1,4 +1,4 @@
-<h1>Edit Article</h1>
+<h1>Edit Author</h1>
 
 <%= form_with(model: @author, local: true) do |form| %>
 
@@ -15,5 +15,13 @@
   <p>
     <%= form.label :homepage %><br>
     <%= form.text_field :homepage %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <p>
+    <%= link_to 'Back', authors_path %>
   </p>
 <%end %>
