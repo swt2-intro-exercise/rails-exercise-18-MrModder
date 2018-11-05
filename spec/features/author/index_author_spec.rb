@@ -19,4 +19,8 @@ describe 'Author index page' do
   it 'should link to new page' do
     expect(page).to have_link nil, href: new_author_path
   end
+
+  it 'should have an author delete method' do
+    expect(page).to have_link 'Delete', href: author_path(@author)
+  end
 end
